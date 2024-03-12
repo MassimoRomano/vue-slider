@@ -30,7 +30,8 @@ createApp({
                 }
             ],
 
-           
+            temp: 0,
+            autoPlay: true
         }
     },
 
@@ -38,23 +39,53 @@ createApp({
 
         next() {
             this.activeImage++;
-        
-            if(this.activeImage >= this.slides.length) {
+
+            if (this.activeImage >= this.slides.length) {
                 this.activeImage = 0;
             }
         },
-        
+
         prev() {
             this.activeImage--;
-        
-            if(this.activeImage < 0) {
+
+            if (this.activeImage < 0) {
                 this.activeImage = this.slides.length - 1;
             }
         },
 
-    changeImage(newImage) {
-        this.activeImage = newImage;
-    },
-    
-}
+        changeImage(newImage) {
+            this.activeImage = newImage;
+        },
+
+
+        stopAutoPlay() {
+            clearInterval(this.temp)
+
+        },
+
+        startAutoPlay() {
+            this.temp = setInterval(() => {
+                if (this.autoPlay) {
+                    this.next();
+                }
+            }, 3000)
+
+        },
+
+        soloAutoPlay() {
+            this.autoPlay = !this.autoPlay
+            if (this.autoPlay) {
+                this.startAutoPlay()
+            } else {
+                this.stopAutoPlay
+            }
+        },
+        
+        mounted() {
+            this.startAutoPlay();
+        }
+    }
+
+
+
 }).mount('#app')
