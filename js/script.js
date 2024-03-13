@@ -81,11 +81,11 @@ createApp({
             }
         },
         
-        mounted() {
-            this.startAutoPlay();
-        }
+    },
+    
+    mounted() {
+        this.startAutoPlay();
     }
-
 
 
 }).mount('#app')

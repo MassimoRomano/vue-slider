@@ -27,8 +27,8 @@
                 <div class="thumbs">
                     <div class="prev" @click="prev"></div>
                     <div class="next" @click="next"></div>
-                    <div v-for="(activeImage, index) in slides" @click="changeImage(index)" class="thumb active">
-                        <img :src="activeImage.image" />
+                    <div class="thumb " :class="{'active' :activeImage === index}"  v-for="(slides, index) in slides" @click="changeImage(index)" >
+                        <img :src="slides.image" />
                     </div>
                     <!-- <div class="thumb">
                         <img src="img/02.webp" alt="Ratchet & Clank" />

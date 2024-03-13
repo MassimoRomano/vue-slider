@@ -74,12 +74,12 @@
 
 .start-stop{
     position: absolute;
-    right: 90px;
+    right: 700px;
     bottom: 205px;
     border: none;
     opacity: 0;
     height: 500px;
-    width: 1200px;
+    width: 800px;
 }
 /*
 EXTRA: in questo esempio gli accordion vengono creati
